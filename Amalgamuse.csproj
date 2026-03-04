@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Platforms>x64</Platforms>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<GameFolder>$(MD_DIRECTORY)</GameFolder>
+		<MelonLoader>$(GameFolder)\MelonLoader\</MelonLoader>
+		<MelonNet6>$(MelonLoader)\net6\</MelonNet6>
+		<MelonAssemblies>$(MelonLoader)\Il2CppAssemblies\</MelonAssemblies>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="0Harmony, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonNET6)\0Harmony.dll</HintPath>
+		</Reference>
+		<Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonAssemblies)\Assembly-CSharp.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppInterop.Common, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonNET6)\Il2CppInterop.Common.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppInterop.Generator, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonNET6)\Il2CppInterop.Generator.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppInterop.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonNET6)\Il2CppInterop.Runtime.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2Cppmscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonAssemblies)\Il2Cppmscorlib.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSirenix.Serialization, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonAssemblies)\Il2CppSirenix.Serialization.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonAssemblies)\Il2CppSystem.dll</HintPath>
+		</Reference>
+		<Reference Include="Il2CppSystem.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonAssemblies)\Il2CppSystem.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="MelonLoader, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonNET6)\MelonLoader.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonAssemblies)\UnityEngine.CoreModule.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<Target Name="CopyMod" AfterTargets="Build" Condition="'$(WORKER)' != 'GitHub'">
+		<Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(GameFolder)\Mods" />
+		<Message Text="Copied assembly to '$(GameFolder)\Mods\$(ProjectName).dll'" Importance="High" />
+	</Target>
+
+</Project>
