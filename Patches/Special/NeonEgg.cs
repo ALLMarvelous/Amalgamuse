@@ -20,7 +20,7 @@ internal static class NeonEggIncubationHandle_Patch
 }
 
 [HarmonyPatch(typeof(StageBattleComponent), nameof(StageBattleComponent.GameStart))]
-internal static class GameStart_Patch
+internal static class GameStartNeonEgg_Patch
 {
     private static void Postfix()
     {

@@ -70,6 +70,16 @@
 			<Private>false</Private>
 			<HintPath>$(MelonAssemblies)\UnityEngine.CoreModule.dll</HintPath>
 		</Reference>
+		<Reference Include="UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonAssemblies)\UnityEngine.IMGUIModule.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine.InputLegacyModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+			<SpecificVersion>false</SpecificVersion>
+			<Private>false</Private>
+			<HintPath>$(MelonAssemblies)\UnityEngine.InputLegacyModule.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 
 	<Target Name="CopyMod" AfterTargets="Build" Condition="'$(WORKER)' != 'GitHub'">
