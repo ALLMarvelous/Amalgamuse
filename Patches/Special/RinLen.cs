@@ -1,7 +1,7 @@
 ﻿using Amalgamuse.Utils;
 using HarmonyLib;
 using Il2CppAssets.Scripts.GameCore.Managers;
-using Il2CppFormulaBase;
+using Il2CppAssets.Scripts.PeroTools.Commons;
 using System.Reflection;
 
 namespace Amalgamuse.Patches.Special;
@@ -18,16 +18,15 @@ internal static class CheckIsRinLen_Patch
     }
 }
 
-
 [HarmonyPatch]
-public static class SkillManager_Patch
+public static class RinLenDoubleManager_Patch
 {
-    private static readonly Logger logger = new("SkillManager_Patch");
+    private static readonly Logger logger = new("RinLenDoubleManager_Patch");
 
     static IEnumerable<MethodBase> TargetMethods()
     {
-        return AccessTools.GetDeclaredMethods(typeof(SkillManager))
-                                .Where(m => m.Name.Contains("RinLen"));
+        return AccessTools.GetDeclaredMethods(typeof(RinLenDoubleManager))
+                                .Where(m => !m.IsSpecialName && !m.IsConstructor);
     }
 
     private static void Prefix()
@@ -35,12 +34,8 @@ public static class SkillManager_Patch
         if (Preferences.CharacterId != 26) return;
         Characters.isFlagged = true;
     }
-}
 
-[HarmonyPatch(typeof(StageBattleComponent), nameof(StageBattleComponent.GameStart))]
-internal static class GameStartRinLen_Patch
-{
-    private static void Prefix()
+    private static void Postfix()
     {
         if (Preferences.CharacterId != 26) return;
         Characters.isFlagged = false;

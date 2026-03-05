@@ -17,7 +17,7 @@ namespace Amalgamuse;
 public class Main : MelonMod
 {
     public const string MelonName = "Amalgamuse";
-    public const string MelonVersion = "0.0.2";
+    public const string MelonVersion = "0.0.3";
     public const string MelonAuthor = "MARVELOUS";
 
     private readonly Logger logger = new("Amalgamuse");
