@@ -8,6 +8,11 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
+		<GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+		<GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+	</PropertyGroup>
+
+	<PropertyGroup>
 		<GameFolder>$(MD_DIRECTORY)</GameFolder>
 		<MelonLoader>$(GameFolder)\MelonLoader\</MelonLoader>
 		<MelonNet6>$(MelonLoader)\net6\</MelonNet6>
