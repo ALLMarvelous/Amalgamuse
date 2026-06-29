@@ -56,6 +56,8 @@ These are the internal IDs for each character and elfin. You can use these to se
 | **31** | Nocturne Bloodheir | | |
 | **32** | Flametide Pirate | | |
 | **33** | Diver | | |
+| **34** | Umarija | | |
+| **33** | Ghost | | |
 
 ## Disclaimer
 
